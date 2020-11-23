@@ -1,10 +1,18 @@
+var startButton = document.getElementById("startButton");
+
 var timeEl = document.querySelector(".time");
 var mainEl = document.getElementById("main");
 
-var secondsLeft = 60;
+var secondsLeft = 3;
+
+// start button to start quiz
+startButton.addEventListener("click", function() {
+    content.textContent = "";
+    startTimer();    
+});
 
 // time amount
-function setTime() {
+function startTimer() {
   // every sectond this code will repeat
   var timerInterval = setInterval(function() {
     secondsLeft--;
