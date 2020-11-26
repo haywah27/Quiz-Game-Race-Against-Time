@@ -1,3 +1,5 @@
+
+var startPage = document.getElementById("start-page");
 var startButton = document.getElementById("startButton");
 
 var timeEl = document.querySelector(".time");
@@ -7,7 +9,7 @@ var secondsLeft = 3;
 
 // start button to start quiz
 startButton.addEventListener("click", function() {
-    content.textContent = "";
+    startPage.textContent = "";
     startTimer();    
 });
 
