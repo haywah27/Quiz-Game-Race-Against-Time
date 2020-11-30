@@ -6,8 +6,7 @@ var scoreTally = document.getElementById("scoreTally")
 var timeEl = document.querySelector(".time");
 var mainEl = document.getElementById("main");
 
-var countdownSecondsLeft = 1;
-var gameTime = 60;
+var gameTime = 61;
 
 var score = 0;
 var questionEl = document.getElementById("question");
@@ -15,6 +14,8 @@ var answerEl = document.getElementById("answers");
 
 var questionNumber = -1;
 var answer;
+
+var finalScore = document.getElementById("finalScore");
 
 
 
@@ -54,24 +55,11 @@ answerEl.textContent = "";
 // start button to start quiz
 startButton.addEventListener("click", function() {
     startPage.textContent = " ";
-    countDown();    
+    gameClock();
+    displayQuestion();    
 });
 
-// time amount
-function countDown() {
-  // every sectond this code will repeat
-  var countDownInterval = setInterval(function() {
-    countdownSecondsLeft--;
-    timeEl.textContent = "Time: " + countdownSecondsLeft;
 
-    if(countdownSecondsLeft === 0) {
-      clearInterval(countDownInterval);
-      gameClock();
-      displayQuestion();
-    }
-
-  }, 1000);
-}
 
 // game time countdown
 function gameClock(){
@@ -82,12 +70,10 @@ function gameClock(){
 
         if (gameTime < 0){
             clearInterval(timerInterval);
-            // gameTimeClock.textContent = " ";
             endGame();
         }
     }, 1000);
 }
-
 
 
 
@@ -122,26 +108,27 @@ answerEl.addEventListener("click", function (event) {
 
     // evaluation of user's answer choices & feedback
     if (answer === event.target.textContent) {   
+        score++;
         pEl.innerHTML = "Correct!";
         setTimeout(hideFeedback,1500);
-        score++;
         showFeedback();   
     } else {
+        gameTime = gameTime - 10;
         pEl.innerHTML = "Sorry, that's incorrect.";
         setTimeout(hideFeedback,1500);
-        gameTime = gameTime - 10;
         showFeedback();
     }    
     displayQuestion();
 });
 
 
-
+// hide feedback message
 function hideFeedback(){
     var pEl= document.getElementsByClassName("feedback")[0]
     pEl.style.display='none'
 }
 
+// show feedback message
 function showFeedback(){
     var pEl= document.getElementsByClassName("feedback")[0]
     pEl.removeAttribute('style');
@@ -155,6 +142,9 @@ function endGame() {
     questionEl.textContent = " ";
     gameTime = -3;
     scoreTally.textContent = " ";
+
+
+    finalScore.textContent = ("Your final score is: " + score + "!");
     console.log("donezo")
 //     var endGameMessage = document.createElement("div");
 //     endGameMessage.textContent = "you lose"
