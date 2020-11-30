@@ -8,18 +8,9 @@ var mainEl = document.getElementById("main");
 var countdownSecondsLeft = 1;
 var gameTime = 60;
 
-// var i = 0;
 var score = 0;
-var currentindex = 0;
 var questionEl = document.getElementById("question");
 var answerEl = document.getElementById("answers");
-
-var answerOne = document.getElementById("answerOne");
-var answerTwo = document.getElementById("answerTwo");
-var answerThree = document.getElementById("answerThree");
-var answerFour = document.getElementById("answerFour");
-
-var messageDiv = document.querySelector("#message");
 
 var questionNumber = -1;
 var answer;
@@ -55,8 +46,8 @@ var questions = [
 }
 ]
 
-
-
+// page setup
+answerEl.textContent = "";
 
 
 
@@ -79,8 +70,19 @@ function displayQuestion() {
             }
 
         } else {
-            endGame();
+            console.log("you be out of qs doe")
         }
+}
+
+
+function hideFeedback(){
+    var pEl= document.getElementsByClassName("feedback")[0]
+    pEl.style.display='none'
+}
+
+function showFeedback(){
+    var pEl= document.getElementsByClassName("feedback")[0]
+    pEl.removeAttribute('style');
 }
 
 answerEl.addEventListener("click", function (event) {
@@ -89,13 +91,13 @@ answerEl.addEventListener("click", function (event) {
     // evaluation of user's answer choices & feedback
     if (answer === event.target.textContent) {   
         pEl.innerHTML = "Correct!";
-        // setTimeout(hideFeedback,1000);
-        // showFeedback();   
+        setTimeout(hideFeedback,1000);
+        showFeedback();   
     } else {
         pEl.innerHTML = "Sorry, that's incorrect.";
-        // setTimeout(hideFeedback,1000);
-        // secondsLeft = secondsLeft - 10;
-        // showFeedback();
+        setTimeout(hideFeedback,1000);
+        gameTime = gameTime - 10;
+        showFeedback();
     }    
     displayQuestion();
 });
@@ -104,7 +106,8 @@ answerEl.addEventListener("click", function (event) {
 
 // start button to start quiz
 startButton.addEventListener("click", function() {
-    startPage.textContent = "";
+    startPage.textContent = " ";
+    
     countDown();    
 });
 
@@ -132,12 +135,12 @@ function gameClock(){
         gameTime--;
         gameTimeClock.textContent = "Time: " + gameTime;
 
-        if (gameTime === 0){
+        if (gameTime < 0){
             clearInterval(timerInterval);
             // gameTimeClock.textContent = " ";
             endGame();
         }
-    }, 100);
+    }, 1000);
 }
 
 
