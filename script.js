@@ -50,64 +50,9 @@ var questions = [
 answerEl.textContent = "";
 
 
-
-function displayQuestion() {
-        questionNumber++;
-        if (questionNumber < questions.length){
-            answer = questions[questionNumber].answer
-            questionEl.textContent = questions[questionNumber].title;
-            answerEl.innerHTML = "";
-        
-            var choices = questions[questionNumber].choices;
-        
-            for (var q = 0; q < choices.length; q++) {
-                var nextChoice = document.createElement("button");
-        
-                nextChoice.textContent = choices[q]
-                
-                // answerBtn = answerEl.appendChild(nextChoice).setAttribute("class", "p-3 m-1 btn btn-light btn-block");
-                answerBtn = answerEl.appendChild(nextChoice);
-            }
-
-        } else {
-            console.log("you be out of qs doe")
-        }
-}
-
-
-function hideFeedback(){
-    var pEl= document.getElementsByClassName("feedback")[0]
-    pEl.style.display='none'
-}
-
-function showFeedback(){
-    var pEl= document.getElementsByClassName("feedback")[0]
-    pEl.removeAttribute('style');
-}
-
-answerEl.addEventListener("click", function (event) {
-    var pEl= document.getElementsByClassName("feedback")[0]
-    
-    // evaluation of user's answer choices & feedback
-    if (answer === event.target.textContent) {   
-        pEl.innerHTML = "Correct!";
-        setTimeout(hideFeedback,1000);
-        showFeedback();   
-    } else {
-        pEl.innerHTML = "Sorry, that's incorrect.";
-        setTimeout(hideFeedback,1000);
-        gameTime = gameTime - 10;
-        showFeedback();
-    }    
-    displayQuestion();
-});
-
-
-
 // start button to start quiz
 startButton.addEventListener("click", function() {
     startPage.textContent = " ";
-    
     countDown();    
 });
 
@@ -145,15 +90,74 @@ function gameClock(){
 
 
 
+
+function displayQuestion() {
+    questionNumber++;
+    if (questionNumber < questions.length){
+        answer = questions[questionNumber].answer
+        questionEl.textContent = questions[questionNumber].title;
+        answerEl.innerHTML = "";
+    
+        var choices = questions[questionNumber].choices;
+    
+        for (var q = 0; q < choices.length; q++) {
+            var nextChoice = document.createElement("button");
+    
+            nextChoice.textContent = choices[q]
+            
+            // answerBtn = answerEl.appendChild(nextChoice).setAttribute("class", "p-3 m-1 btn btn-light btn-block");
+            answerBtn = answerEl.appendChild(nextChoice);
+        }
+
+    } else {
+        endGame()
+    }
+}
+
+
+
+answerEl.addEventListener("click", function (event) {
+    var pEl= document.getElementsByClassName("feedback")[0]
+
+    // evaluation of user's answer choices & feedback
+    if (answer === event.target.textContent) {   
+        pEl.innerHTML = "Correct!";
+        setTimeout(hideFeedback,1000);
+        score++;
+        showFeedback();   
+    } else {
+        pEl.innerHTML = "Sorry, that's incorrect.";
+        setTimeout(hideFeedback,1000);
+        gameTime = gameTime - 10;
+        showFeedback();
+    }    
+    displayQuestion();
+});
+
+
+
+function hideFeedback(){
+    var pEl= document.getElementsByClassName("feedback")[0]
+    pEl.style.display='none'
+}
+
+function showFeedback(){
+    var pEl= document.getElementsByClassName("feedback")[0]
+    pEl.removeAttribute('style');
+}
+
+
+
 function endGame() {
     gameTimeClock.textContent = " ";
-
-//   timeEl.textContent = " ";
-
-  var endGameMessage = document.createElement("div");
-  endGameMessage.textContent = "you lose"
+    answerEl.textContent = " ";
+    questionEl.textContent = " ";
+    gameTime = -3;
+    console.log("donezo")
+//     var endGameMessage = document.createElement("div");
+//     endGameMessage.textContent = "you lose"
  
-  mainEl.appendChild(endGameMessage);
+//   mainEl.appendChild(endGameMessage);
 
 }
 
