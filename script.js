@@ -1,24 +1,41 @@
-var startPage = document.getElementById("start-page");
+// start button
 var startButton = document.getElementById("startButton");
-var gameTimeClock = document.getElementById("gameTimeClock")
-var scoreTally = document.getElementById("scoreTally")
 
+// game time clock element
+var gameTimeClock = document.getElementById("gameTimeClock");
+
+// score throughout game element
+var scoreTally = document.getElementById("scoreTally");
+
+// time element for interval countdown
 var timeEl = document.querySelector(".time");
-var mainEl = document.getElementById("main");
 
+// 3 main divs on html
+var startPage = document.getElementById("start-page");
+var quizEl = document.getElementById("quiz");
+var scoreForm = document.querySelector("#submit-score");
+
+// game countdown clock
 var gameTime = 61;
 
+// inital score value
 var score = 0;
+// questions
 var questionEl = document.getElementById("question");
+// answers
 var answerEl = document.getElementById("answers");
 
+// inital counter of questions position
 var questionNumber = -1;
 var answer;
 
+// final score display element
 var finalScore = document.getElementById("finalScore");
+var userScore = document.getElementById("user-score");
 
+var scoreForm = document.querySelector("#submit-score");
 
-
+// list of questions in object
 var questions = [
 {
     title: "Inside which HTML element do we put the JavaScript?",
@@ -50,11 +67,16 @@ var questions = [
 
 // page setup
 answerEl.textContent = "";
+// hide score submission box
+document.getElementById("submit-score").style.display = "none";
 
 
 // start button to start quiz
 startButton.addEventListener("click", function() {
-    startPage.textContent = " ";
+    // startPage.textContent = " ";
+    
+    document.getElementById("start-page").classList.add('d-none');
+    document.getElementById("quiz").classList.remove('d-none');
     gameClock();
     displayQuestion();    
 });
@@ -78,6 +100,7 @@ function gameClock(){
 
 
 function displayQuestion() {
+    
     scoreTally.textContent = ("Score: " + score);
     questionNumber++;
     if (questionNumber < questions.length){
@@ -142,14 +165,11 @@ function endGame() {
     questionEl.textContent = " ";
     gameTime = -3;
     scoreTally.textContent = " ";
-
-
+   
+    // show score submission box
+    document.getElementById("submit-score").style.display = "";
     finalScore.textContent = ("Your final score is: " + score + "!");
-    console.log("donezo")
-//     var endGameMessage = document.createElement("div");
-//     endGameMessage.textContent = "you lose"
- 
-//   mainEl.appendChild(endGameMessage);
+//    scoreForm = document.querySelector("#submit-score");
 
 }
 

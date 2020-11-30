@@ -25,7 +25,7 @@
 
    
     <!-- questions -->
-    <div id="main">
+    <div id="quiz">
         <h1 class="time"></h1>
         <h1 id="gameTimeClock"></h1>
         <h1 id="scoreTally"></h1>
@@ -41,8 +41,13 @@
     </div>
 
     <!-- end page -->
-    <div>
+    <div id = "submit-score">
         <h1 id = "finalScore"></h1>
+        <form class="form-group">
+            <label for="new-score">Enter your name: </label>
+            <input type="text" id="userName"> 
+            <button type="button" class="btn btn-info btn-sm submitBtn">Submit</button>
+        </form>
 
     </div>
 
