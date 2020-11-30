@@ -1,6 +1,7 @@
 var startPage = document.getElementById("start-page");
 var startButton = document.getElementById("startButton");
 var gameTimeClock = document.getElementById("gameTimeClock")
+var scoreTally = document.getElementById("scoreTally")
 
 var timeEl = document.querySelector(".time");
 var mainEl = document.getElementById("main");
@@ -65,7 +66,6 @@ function countDown() {
 
     if(countdownSecondsLeft === 0) {
       clearInterval(countDownInterval);
-    //   countDownInterval.remove();
       gameClock();
       displayQuestion();
     }
@@ -92,6 +92,7 @@ function gameClock(){
 
 
 function displayQuestion() {
+    scoreTally.textContent = ("Score: " + score);
     questionNumber++;
     if (questionNumber < questions.length){
         answer = questions[questionNumber].answer
@@ -122,12 +123,12 @@ answerEl.addEventListener("click", function (event) {
     // evaluation of user's answer choices & feedback
     if (answer === event.target.textContent) {   
         pEl.innerHTML = "Correct!";
-        setTimeout(hideFeedback,1000);
+        setTimeout(hideFeedback,1500);
         score++;
         showFeedback();   
     } else {
         pEl.innerHTML = "Sorry, that's incorrect.";
-        setTimeout(hideFeedback,1000);
+        setTimeout(hideFeedback,1500);
         gameTime = gameTime - 10;
         showFeedback();
     }    
@@ -153,6 +154,7 @@ function endGame() {
     answerEl.textContent = " ";
     questionEl.textContent = " ";
     gameTime = -3;
+    scoreTally.textContent = " ";
     console.log("donezo")
 //     var endGameMessage = document.createElement("div");
 //     endGameMessage.textContent = "you lose"
