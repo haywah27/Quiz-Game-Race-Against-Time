@@ -34,6 +34,7 @@ var finalScore = document.getElementById("finalScore");
 var userScore = document.getElementById("user-score");
 
 var scoreForm = document.querySelector("#submit-score");
+var submitBtn = document.querySelector("button.submitBtn")
 
 // list of questions in object
 var questions = [
@@ -169,7 +170,32 @@ function endGame() {
     // show score submission box
     document.getElementById("submit-score").style.display = "";
     finalScore.textContent = ("Your final score is: " + score + "!");
-//    scoreForm = document.querySelector("#submit-score");
+
+    submitBtn.addEventListener("click", function (event) {
+        // event.stopPropagation();
+        addScore();
+        
+        window.location.href = './topScores.html'
+    });
 
 }
+
+function addScore () {
+    userNameInput = document.getElementById("userName").value
+    
+    // create a new object with name and score keys
+    var newScore = {
+            name: userNameInput,
+            score: score
+        };
+        // check if there are scores in local storage first(get it)
+        //if not, make a new/blank array
+        var highScores = JSON.parse(localStorage.getItem("highScores") || "[]");
+        // push object into score array
+        highScores.push(newScore)
+        // turn objects into an array of strings then put it into local storage
+        localStorage.setItem("highScores", JSON.stringify(highScores));
+
+}
+
 
