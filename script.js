@@ -33,6 +33,8 @@ var answer;
 var finalScore = document.getElementById("finalScore");
 var userScore = document.getElementById("user-score");
 
+var highScores = [];
+
 var scoreForm = document.querySelector("#submit-score");
 var submitBtn = document.querySelector("button.submitBtn")
 
@@ -180,6 +182,8 @@ function endGame() {
 
 }
 
+var scoreForm = document.querySelector("#score-list");
+
 function addScore () {
     userNameInput = document.getElementById("userName").value
     
@@ -188,13 +192,15 @@ function addScore () {
             name: userNameInput,
             score: score
         };
+        
         // check if there are scores in local storage first(get it)
-        //if not, make a new/blank array
-        var highScores = JSON.parse(localStorage.getItem("highScores") || "[]");
-        // push object into score array
-        highScores.push(newScore)
-        // turn objects into an array of strings then put it into local storage
-        localStorage.setItem("highScores", JSON.stringify(highScores));
+            //if not, make a new/blank array
+            var highScores = JSON.parse(localStorage.getItem("highScores") || "[]");
+            // push object into score array
+            highScores.push(newScore)
+            // turn objects into an array of strings then put it into local storage
+            localStorage.setItem("highScores", JSON.stringify(highScores));
+
 
 }
 
