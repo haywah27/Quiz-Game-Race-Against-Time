@@ -3,25 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- style links -->
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <title>Timed Quiz</title>
+    <title>JS Timed Quiz</title>
     
 </head>
 <body>
+    <!-- heading on page -->
+    <nav class="navbar navbar-dark" id = "heading">
+        <a class="navbar-brand" href="./scoreBoard.js">High Scores</a>
+        <span class="navbar-brand mb-0 h1 float-right"></span>
+    </nav>
+
         <!-- start page -->
-        <div id="start-page">
-            <h2>Take the JavaScript Fundamentals Quiz!</h2>
-            <ul>
-                <li>Click "Start Game!" to begin.</li>
-                <li>You will have 60 seconds to complete the quiz.</li> 
-                <li>For every incorrect answer selected, you'll lose 10 seconds from your remaining time.</li>
-                <li>For every correct answer selected, 10 points will be added to your score.</li>
-            </ul>
-            <br><br>
-            <input type="button" id="startButton" value="Start Game!">
-        </div>
+    <div id="start-page">
+        <h2>Take the JavaScript Fundamentals Quiz!</h2>
+        <ul>
+            <li>Click "Start Game!" to begin.</li>
+            <li>You will have 60 seconds to complete the quiz.</li> 
+            <li>For every incorrect answer selected, you'll lose 10 seconds from your remaining time.</li>
+            <li>For every correct answer selected, 10 points will be added to your score.</li>
+        </ul>
+        <br><br>
+        <input type="button" id="startButton" value="Start Game!">
+    </div>
 
    
     <!-- questions -->
@@ -40,7 +47,7 @@
 
     </div>
 
-    <!-- end page -->
+    <!-- submit high score/ end page -->
     <div id = "submit-score">
         <h1 id = "finalScore"></h1>
         <form class="form-group">
@@ -48,9 +55,7 @@
             <input type="text" id="userName"> 
             <button type="button" class="btn btn-info btn-sm submitBtn">Submit</button>
         </form>
-
     </div>
-
 
     
     <!-- js file link -->
