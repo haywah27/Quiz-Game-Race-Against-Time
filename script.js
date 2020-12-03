@@ -114,8 +114,8 @@ function displayQuestion() {
             var nextChoice = document.createElement("button");
     
             nextChoice.textContent = choices[q]
-            // 
-            answerBtn = answerEl.appendChild(nextChoice);
+            // append button and add style
+            answerBtn = answerEl.appendChild(nextChoice).setAttribute("class", "btn btn-info btn-block");
                         // answerBtn = answerEl.appendChild(nextChoice).setAttribute("class", "p-3 m-1 btn btn-light btn-block");
 
         }
@@ -165,6 +165,7 @@ function showFeedback(){
 // end game when timer or out of questions function
 function endGame() {
     // hide all content
+    quizEl.textContent = " ";
     gameTimeClock.textContent = " ";
     answerEl.textContent = " ";
     questionEl.textContent = " ";

@@ -15,46 +15,67 @@
     <nav class="navbar navbar-dark" id = "heading">
         <a class="navbar-brand" href="./topScores.html">High Scores</a>
         <span class="navbar-brand mb-0 h1 "id="scoreTally"></span>
-        <span class="navbar-brand mb-0 h1 float-right"id="gameTimeClock"></span>
+        <span class="navbar-brand mb-0 h1 float-right" id="gameTimeClock"></span>
         
     </nav>
 
         <!-- start page -->
-    <div id="start-page">
-        <h2>Take the JavaScript Fundamentals Quiz!</h2>
-        <ul>
-            <li>Click "Start Game!" to begin.</li>
-            <li>You will have 60 seconds to complete the quiz.</li> 
-            <li>For every incorrect answer selected, you'll lose 10 seconds from your remaining time.</li>
-            <li>For every correct answer selected, 10 points will be added to your score.</li>
-        </ul>
-        <br><br>
-        <input type="button" id="startButton" value="Start Game!">
+    <div id="start-page" class="container mt-5">
+        <div class="row justify-content-center mt-5 pt-3 pb-3">
+            <div class="col-10 col-lg-8 text-center">
+                <h2>Take the JavaScript Fundamentals Quiz!</h2>
+                <br>
+                    <p>- You will have 60 seconds to complete the quiz.</lp> 
+                    <p>- For every incorrect answer selected, you'll lose 10 seconds from your remaining time.</p>
+                    <p>- For every correct answer selected, 10 points will be added to your score.</p>
+                    <p>- Click "Start Game!" to begin.</p>
+                <br>
+                <input type="button" class="btn btn-info btn-lg" id="startButton" value="Start Game!">
+            </div>
+        </div>
     </div>
 
    
     <!-- questions -->
-    <div id="quiz">
-        <h1 class="time"></h1>
-        <h1 id="question"></h1>
-        <ul id="answers">
-            <li class="answerChoice"></li>
-            <li class="answerChoice"></li>
-            <li class="answerChoice"></li>
-            <li class="answerChoice"></li>
-        </ul>
-        <p class="feedback"></p>
+    <div id="quiz" class="container mt-6">
+        <div class="row justify-content-center pt-3 pb-3">
+            <div class="col-10 col-lg-8">
+                <h1 class="time"></h1>
+                <h1 id="question"></h1>
+                <div id="answers"></div>
+                <p class="feedback"></p>
+            </div>
+        </div>         
     </div>
 
     <!-- submit high score/ end page -->
-    <div id = "submit-score">
-        <h1 id = "finalScore"></h1>
-        <form class="form-group">
-            <label for="new-score">Enter your name: </label>
-            <input type="text" id="userName"> 
-            <button type="button" class="btn btn-info btn-sm submitBtn">Submit</button>
-        </form>
+    <div id = "submit-score" class="container mt-5">
+        <div class="row justify-content-center mt-5 pt-3 pb-3">
+            <div class="col-4 col-lg-5">
+                <h1 id = "finalScore"></h1>
+                <form class="form-group">
+                    <label for="new-score" >Enter your name: </label>
+                    <input type="text" id="userName"> 
+                    <button type="button" class="btn btn-info btn-md submitBtn">Submit</button>
+                </form>
+            </div>
+        </div>
     </div>
+
+
+
+    <!-- <div id = "submit-score" class="card text-center">
+        <div class="card-body">
+            
+                <h1 id = "finalScore"></h1>
+                <form class="form-group">
+                    <label for="new-score">Enter your name: </label>
+                    <input type="text" id="userName"> 
+                    <button type="button" class="btn btn-info btn-md submitBtn">Submit</button>
+                </form>
+            
+        </div>
+    </div> -->
 
     
     <!-- js file link -->
