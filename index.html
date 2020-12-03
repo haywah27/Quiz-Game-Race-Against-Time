@@ -13,8 +13,10 @@
 <body>
     <!-- heading on page -->
     <nav class="navbar navbar-dark" id = "heading">
-        <a class="navbar-brand" href="./scoreBoard.js">High Scores</a>
-        <span class="navbar-brand mb-0 h1 float-right"></span>
+        <a class="navbar-brand" href="./topScores.html">High Scores</a>
+        <span class="navbar-brand mb-0 h1 "id="scoreTally"></span>
+        <span class="navbar-brand mb-0 h1 float-right"id="gameTimeClock"></span>
+        
     </nav>
 
         <!-- start page -->
@@ -34,8 +36,6 @@
     <!-- questions -->
     <div id="quiz">
         <h1 class="time"></h1>
-        <h1 id="gameTimeClock"></h1>
-        <h1 id="scoreTally"></h1>
         <h1 id="question"></h1>
         <ul id="answers">
             <li class="answerChoice"></li>
@@ -44,7 +44,6 @@
             <li class="answerChoice"></li>
         </ul>
         <p class="feedback"></p>
-
     </div>
 
     <!-- submit high score/ end page -->
