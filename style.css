@@ -1,8 +1,12 @@
-/* body font */
+/* navbar */
+#heading {
+    background-color: #17a2b8;
+}
+
+/* page font */
 div, nav {
     font-family: "Times New Roman", Times, serif;
 }
-
 
 /* timer */
 .time {
@@ -10,17 +14,4 @@ div, nav {
     margin-right: 50px;
     text-align: right;
 } 
-/* 
-.card {
-    margin-top: 50px;
-    padding-left: 25px;
-    padding-right: 25px;
-    margin-left: 150px;
-    margin-right: 150px;
-} */
 
-
-/* navbar */
-#heading {
-    background-color: #17a2b8;
-}

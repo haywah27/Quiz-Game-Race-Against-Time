@@ -112,12 +112,9 @@ function displayQuestion() {
     
         for (var q = 0; q < choices.length; q++) {
             var nextChoice = document.createElement("button");
-    
             nextChoice.textContent = choices[q]
             // append button and add style
             answerBtn = answerEl.appendChild(nextChoice).setAttribute("class", "btn btn-info btn-block");
-                        // answerBtn = answerEl.appendChild(nextChoice).setAttribute("class", "p-3 m-1 btn btn-light btn-block");
-
         }
     // if questions run out, initiate end of game
     } else {
@@ -169,8 +166,10 @@ function endGame() {
     gameTimeClock.textContent = " ";
     answerEl.textContent = " ";
     questionEl.textContent = " ";
-    gameTime = -3;
+    gameTime = -1;
     scoreTally.textContent = " ";
+    
+
    
     // show score submission box
     document.getElementById("submit-score").style.display = "";
