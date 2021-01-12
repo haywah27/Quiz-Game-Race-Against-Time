@@ -5,6 +5,12 @@ https://haywah27.github.io/Race-Against-Time-Quiz-Game/
 
 This application is a timed coding quiz with multiple-choice questions about JavaScript. It also has the ability to store list of high scores.
 
+# Deployed Portfolio Website Image
+<img src="./Assets/deployed-application.png" alt="deployed-website">
+
+# Demo
+<img src="./Assets/quiz-demo.png" alt="demo">
+
 # Summary of changes
 * Linking CSS and JS pages
 * Adding timer
@@ -27,5 +33,3 @@ This application is a timed coding quiz with multiple-choice questions about Jav
 * Moving score and timer to display in navbar
 * Adding style elements
 
-# Deployed Portfolio Website Image
-<img src="./Assets/deployed-application.png" alt="deployed-website">
