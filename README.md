@@ -9,7 +9,7 @@ This application is a timed coding quiz with multiple-choice questions about Jav
 <img src="./Assets/deployed-application.png" alt="deployed-website">
 
 # Demo
-<img src="./Assets/quiz-demo.png" alt="demo">
+<img src="./Assets/quiz-demo.gif" alt="demo">
 
 # Summary of changes
 * Linking CSS and JS pages
